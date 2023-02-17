@@ -1,32 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Open+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&display=swap');
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-:root {
-    --grid-columns: 1; /* 1 box per column */
-    --grid-rows: 1; /* 1 box per row */
+body {
+    background: linear-gradient(-45deg, #004eff, #de5d83, #f6eb61, #004eff, #de5d83, #f6eb61);
+    background-size: 400% 400%;
+    animation: gradient-bg 40s linear infinite;
+}
+
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 #main {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    gap: 70px;
+    gap: 50px;
+}
+
+.container {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    background-color: rgb(242, 233, 234);
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 }
 
 .grid-item {
-    padding: 1em;
-    border: 1px solid #000000;
+    /* border: 1px solid rgb(136, 139, 141); */
+    cursor: crosshair;
 }
 
-h1 {
+.waviy {
+    position: relative;
     text-align: center;
-    font-size: 25px;
-    font-family: Verdana, Tahoma, sans-serif;
+    padding: 50px 0;
+}
+
+.waviy span {
+    position: relative;
+    display: inline-block;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 70px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #000000;
     text-transform: uppercase;
-    padding: 30px 0;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+}
+
+@keyframes flip {
+    0%, 80% {
+      transform: rotateY(360deg) 
+    }
 }
 
 .controls {
@@ -36,11 +77,25 @@ h1 {
 }
 
 button {
-    display: block;
-    width: 100%;
-    font-size: 14px;
-    font-family: Verdana, Tahoma, sans-serif;
-    padding: 10px 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
+  font-family: 'Open Sans', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
 }
